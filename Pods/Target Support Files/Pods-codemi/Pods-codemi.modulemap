@@ -1,0 +1,6 @@
+framework module Pods_codemi {
+  umbrella header "Pods-codemi-umbrella.h"
+
+  export *
+  module * { export * }
+}
