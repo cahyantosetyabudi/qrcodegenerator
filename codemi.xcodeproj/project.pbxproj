@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		798CD66A21CC489300807FD5 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CD66921CC489300807FD5 /* RoundedButton.swift */; };
+		798CD66C21CC49B500807FD5 /* RoundedField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CD66B21CC49B500807FD5 /* RoundedField.swift */; };
 		7997991021CB5532007FF1BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7997990F21CB5532007FF1BA /* AppDelegate.swift */; };
 		7997991521CB5532007FF1BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7997991321CB5532007FF1BA /* Main.storyboard */; };
 		7997991721CB5532007FF1BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7997991621CB5532007FF1BA /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		47BC364B29788A1A1F58C15D /* Pods-codemi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codemi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-codemi/Pods-codemi.debug.xcconfig"; sourceTree = "<group>"; };
 		7113ED77C560BC750878AD79 /* Pods_codemi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_codemi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		798CD66921CC489300807FD5 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		798CD66B21CC49B500807FD5 /* RoundedField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedField.swift; sourceTree = "<group>"; };
 		7997990C21CB5532007FF1BA /* codemi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = codemi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7997990F21CB5532007FF1BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7997991421CB5532007FF1BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +50,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		798CD66821CC487200807FD5 /* Designable */ = {
+			isa = PBXGroup;
+			children = (
+				798CD66921CC489300807FD5 /* RoundedButton.swift */,
+				798CD66B21CC49B500807FD5 /* RoundedField.swift */,
+			);
+			path = Designable;
+			sourceTree = "<group>";
+		};
 		7997990321CB5531007FF1BA = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +80,7 @@
 		7997990E21CB5532007FF1BA /* codemi */ = {
 			isa = PBXGroup;
 			children = (
+				798CD66821CC487200807FD5 /* Designable */,
 				7997992321CB765D007FF1BA /* GoogleService-Info.plist */,
 				7997990F21CB5532007FF1BA /* AppDelegate.swift */,
 				7997991321CB5532007FF1BA /* Main.storyboard */,
@@ -233,7 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				798CD66C21CC49B500807FD5 /* RoundedField.swift in Sources */,
 				7997992221CB6A96007FF1BA /* LoginViewController.swift in Sources */,
+				798CD66A21CC489300807FD5 /* RoundedButton.swift in Sources */,
 				7997991021CB5532007FF1BA /* AppDelegate.swift in Sources */,
 				7997992621CB8524007FF1BA /* HomeViewController.swift in Sources */,
 				7997992821CB97D7007FF1BA /* ScanViewController.swift in Sources */,

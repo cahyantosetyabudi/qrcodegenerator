@@ -36,13 +36,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func loginTapped(_ sender: UIButton) {
-        Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) { (userResult, error) in
-            guard let user = userResult?.email, error == nil else {
-                print(error?.localizedDescription)
+        guard let email = emailField.text, let password = passwordField.text else {
+            return
+        }
+        
+        if email.isEmpty || password.isEmpty {
+            showMessageAlert(title: "Error", message: "Email and password can't be empty")
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (userResult, error) in
+            if let error = error {
+                self.showMessageAlert(title: "Error", message: error.localizedDescription)
                 return
             }
             
-            print("Sukses")
             self.performSegue(withIdentifier: "home", sender: nil)
             return
         }
@@ -65,6 +73,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func showMessageAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
 }

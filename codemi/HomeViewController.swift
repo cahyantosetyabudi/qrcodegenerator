@@ -7,17 +7,26 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var qrImageView: UIImageView!
-        
+    
+    var ref: DatabaseReference!
+    let firebaseAuth = Auth.auth()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let QRCode = generateQRCode(from: "Cahyanto Setya Budi")
-        qrImageView.image = QRCode
-        
+        ref = Database.database().reference()
+        let userID = firebaseAuth.currentUser!.uid
+        ref.child("users").child(userID).observeSingleEvent(of: .value) { (user) in
+            let jsonUser = user.value as? NSDictionary
+            let name = jsonUser!["name"] as? String ?? ""
+            self.qrImageView.image = self.generateQRCode(from: name)
+        }
+    
     }
     
     func generateQRCode(from string: String) -> UIImage {
@@ -26,6 +35,16 @@ class HomeViewController: UIViewController {
         filter?.setValue(data, forKey: "inputMessage")
         let transformedImage = filter?.outputImage?.transformed(by: CGAffineTransform(scaleX: 3, y: 3))
         return UIImage(ciImage: transformedImage!)
+    }
+    
+    @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
+        do {
+            try firebaseAuth.signOut()
+            let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            present(loginViewController, animated: true, completion: nil)
+        } catch let error as NSError{
+            print("Error signing out: \(error)")
+        }
     }
     
 }
